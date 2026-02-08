@@ -44,13 +44,13 @@ EL-for-fairness-auditing/
 | **Tab1 and Fig1** | Bootstrap / EL / EEL 覆盖率表；EL、EEL 与卡方分位数的 QQ 图 | `Table1.R`, `Figure1.R`, `Generate-EL-Data.R`, `Generate-Bt-Data.R` |
 | **Tab2** | Model1 下 EL、EEL 与 Bootstrap 方法的运行时间对比表 | `Table2.R`, `Generate-Model1-EL-Data.R`, `Generate-Model1-Bt-Data.R` |
 | **Tab3** | FFR 的 EL 检验与 Benjamini–Hochberg 多重检验 | `Table3.R`（使用 `emplik`包） |
-| **Figs2-3** | 功效比较（T04/T14/T24/T34 等统计量） | `Figs2-3.R`, `Generate-Data.R` |
+| **Figs2-3** | 功效比较（等式约束和不等式约束统计量） | `Figs2-3.R`, `Generate-Data.R` |
 | **Fig4-6** | COMPAS 数据：非裔/白人、性别-年龄等子群的 PPV 差异 90%/95% 置信区间 | `Fig4.R`, `Fig5a.R`, `Fig5b.R`, `Fig6a.R`, `Fig6b.R`, `Generate-CI-AfricanVSCaucasian.R` 等 |
 
 
 各子目录中通常包含：
 
-- `GlambdaChen.R`：Chen 型经验似然 Lagrange 乘子求解（核心 EL 计算）
+- `GlambdaChen.R`：经验似然 Lagrange 乘子求解算法（ EL 计算核心）
 - `data/`：该目录下脚本所需的 CSV 数据（部分需先运行“生成数据”脚本得到）
 
 ## 使用方法
@@ -133,13 +133,13 @@ source("Figs2-3.R")
 - **模拟数据**：Table 1/2 与 Figs2–3 所用 CSV 由各目录下的 `Generate-*-Data.R` 在本地生成，需在对应目录下依次运行相应脚本。
 ## 核心方法简述
 
-- **EL Lagrange 计算**：在估计方程 \(g = (L - \epsilon) \cdot S\) 下求解 Lagrange 乘子 \(\lambda\)，为 EL 统计量、置信区间与 p 值的计算提供数值基础。本仓库采用 Chen et al. (2008)[^1] 第 432–433 页给出的修正 Newton–Raphson 算法实现 EL 的求解，代码见 `Glambda.R`；亦可使用 R 包 **emplik** 等现有实现。
+- **EL Lagrange 计算**：在估计方程 $g = (L - \epsilon) \cdot S$ 下求解 Lagrange 乘子 $\lambda$，为 EL 统计量、置信区间与 p 值的计算提供数值基础。本仓库采用 Chen et al. (2008)[^1] 第 432–433 页给出的修正 Newton–Raphson 算法实现 EL 的求解，代码见 `Glambda.R`；亦可使用 R 包 **emplik** 等现有实现。
 
 [^1]: Chen, J., Variyath, A. M., and Abraham, B. (2008). Adjusted empirical likelihood and its properties. *Journal of Computational and Graphical Statistics*, 17(2): 426–443.
 
 - **EEL**：基于经验协方差矩阵的二次型扩展，同样与卡方分布比较。
-- **COMPAS 审计**：对“阳性预测”子群构造 PPV 差异 \(\varepsilon_G\) 的 EL 置信区间（见 `epsilonG_CI.R`），用于判断组间公平性。
-- **FFR（Tab3）**：在分组损失下做 \(H_0: \varepsilon \leq \varepsilon_0\) 的 EL 检验，并结合 BH 程序控制 FFR。
+- **COMPAS 审计**：对“阳性预测”子群构造 PPV 差异 $\varepsilon_G$ 的 EL 置信区间（见 `epsilonG_CI.R`），用于判断组间公平性。
+- **FFR（Tab3）**：在分组损失下做 $H_0: \varepsilon \leq \varepsilon_0$ 的 EL 检验，并结合 BH 程序控制 FFR。
 
 ## 提交代码
 
