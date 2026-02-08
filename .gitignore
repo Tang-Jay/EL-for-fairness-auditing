@@ -3,3 +3,6 @@
 .RData
 .Ruserdata
 .DS_Store
+# 大文件（避免推送超时，请勿提交）
+Fig4-6/flag.pptx
+Fig4-6/simhei.ttf
