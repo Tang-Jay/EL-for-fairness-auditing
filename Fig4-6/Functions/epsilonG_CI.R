@@ -83,6 +83,6 @@ epsilonG_CI<-function(group_specific_data,target=theta_P, a=-1, b=1, step=0.001,
   # P(Y=1|X=aa,Y_h=1) VS P(Y=1|X=ca,Y_h=1)
   mu_aa_Y <- mean(group_specific_data$Y)
   mu_ca_Y <- target
-  cat('样本epsilonG', mu_aa_Y - mu_ca_Y )
+  cat('epsilonG_hat', mu_aa_Y - mu_ca_Y )
   
 }

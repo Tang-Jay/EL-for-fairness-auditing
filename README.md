@@ -1,5 +1,7 @@
 # EL for Fairness Auditing
 
+**仓库地址：** [https://github.com/Tang-Jay/EL-for-fairness-auditing](https://github.com/Tang-Jay/EL-for-fairness-auditing)
+
 基于**经验似然（Empirical Likelihood, EL）**与**欧式经验似然（EEL）**的公平性审计复现与实验代码。本仓库包含论文中表格与图形的完整 R 实现，涵盖覆盖率比较、运行时间、功效分析以及 COMPAS 数据的公平性置信区间与 FFR 检验。
 
 ## 项目简介
@@ -130,7 +132,10 @@ source("Figs2-3.R")
 
 ## 核心方法简述
 
-- **EL  Lagrange 计算**（`Glambda.R`）：在估计方程 \(g = (L - \epsilon) \cdot S\) 下求 Lagrange 乘子 \(\lambda\) 的算法，从而为计算 EL 统计量、置信区间或 p 值提供数值计算基础。
+- **EL Lagrange 计算**：在估计方程 \(g = (L - \epsilon) \cdot S\) 下求解 Lagrange 乘子 \(\lambda\)，为 EL 统计量、置信区间与 p 值的计算提供数值基础。本仓库采用 Chen et al. (2008)[^1] 第 432–433 页给出的修正 Newton–Raphson 算法实现 EL 的求解，代码见 `Glambda.R`；亦可使用 R 包 **emplik** 等现有实现。
+
+[^1]: Chen, J., Variyath, A. M., and Abraham, B. (2008). Adjusted empirical likelihood and its properties. *Journal of Computational and Graphical Statistics*, 17(2): 426–443.
+
 - **EEL**：基于经验协方差矩阵的二次型扩展，同样与卡方分布比较。
 - **COMPAS 审计**：对“阳性预测”子群构造 PPV 差异 \(\varepsilon_G\) 的 EL 置信区间（见 `epsilonG_CI.R`），用于判断组间公平性。
 - **FFR（Tab3）**：在分组损失下做 \(H_0: \varepsilon \leq \varepsilon_0\) 的 EL 检验，并结合 BH 程序控制 FFR。
