@@ -5,12 +5,7 @@
 # and Caucasian defendants under the COMPAS risk assessment.
 # =============================================== #
 rm(list = ls())
-source('GlambdaChen.R')
-library('sysfonts')
-library('showtextdb')
-library('showtext')
-showtext_auto(enable = TRUE)
-font_add('simhei', 'simhei.ttf')
+source('Functions/GlambdaChen.R')
 # 加载必要的包（如未安装需先安装）
 # if (!require("dplyr")) install.packages("dplyr")
 # if (!require("readr")) install.packages("readr")
