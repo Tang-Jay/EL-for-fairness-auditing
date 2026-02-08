@@ -140,6 +140,19 @@ source("Figs2-3.R")
 - **COMPAS 审计**：对“阳性预测”子群构造 PPV 差异 \(\varepsilon_G\) 的 EL 置信区间（见 `epsilonG_CI.R`），用于判断组间公平性。
 - **FFR（Tab3）**：在分组损失下做 \(H_0: \varepsilon \leq \varepsilon_0\) 的 EL 检验，并结合 BH 程序控制 FFR。
 
+## 提交代码
+
+在本地修改后，可用以下命令提交并推送到 GitHub：
+
+```bash
+cd /path/to/EL-for-fairness-auditing
+git add .
+git commit -m "类型: 简短描述"   # 如：docs: 更新 README
+git push origin main
+```
+
+建议 commit 信息前缀：`docs:`（文档）、`feat:`（新功能）、`fix:`（修复）、`chore:`（杂项）。
+
 ## 引用与参考
 
 若使用本代码或 COMPAS 数据，请同时引用：
