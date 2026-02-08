@@ -2,12 +2,12 @@
 
 **仓库地址：** [https://github.com/Tang-Jay/EL-for-fairness-auditing](https://github.com/Tang-Jay/EL-for-fairness-auditing)
 
-基于**经验似然（Empirical Likelihood, EL）**与**欧式经验似然（EEL）**的公平性审计复现与实验代码。本仓库包含论文中表格与图形的完整 R 实现，涵盖覆盖率比较、运行时间、功效分析以及 COMPAS 数据的公平性置信区间与 FFR 检验。
+基于**经验似然(Empirical Likelihood, EL)**的公平性审计复现与实验代码。本仓库包含论文中表格与图形的完整 R 实现，涵盖覆盖率比较、运行时间、功效分析以及 COMPAS 数据的公平性置信区间与 FFR 检验。
 
 ## 项目简介
 
-- **EL / EEL**：在分组损失/公平性约束下构造置信区间与假设检验，无需 Bootstrap 重抽样。
-- **公平性审计**：对 COMPAS 等预测系统做组间 PPV（阳性预测值）差异的置信区间估计，以及对 FFR（False Flagging Rate）的 EL 检验与多重比较（BH 程序）。
+- **公平审计任务一：模型公平认证**：采用 EL / EEL 两种认证方式，在分组损失/公平性约束下构造置信区间与假设检验，无需 Bootstrap 重抽样。
+- **公平审计任务二：不公平子群体标记**：4 种 EL 检验场景结合 BH 流程标记不公平子群体，同时控制错误标记率（FFR）。
 
 对比方法包括：Bootstrap、EL、EEL、T-test。
 
