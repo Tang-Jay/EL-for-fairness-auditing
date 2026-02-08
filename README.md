@@ -23,6 +23,8 @@
 install.packages(c("ggplot2", "dplyr", "readr", "Cairo", "emplik"))
 ```
 
+克隆本仓库可直接使用 `git clone https://github.com/Tang-Jay/EL-for-fairness-auditing.git`。
+
 ## 项目结构
 
 ```
@@ -40,7 +42,7 @@ EL-for-fairness-auditing/
 | 目录 | 内容 | 主要脚本 |
 |------|------|----------|
 | **Tab1 and Fig1** | Bootstrap / EL / EEL 覆盖率表；EL、EEL 与卡方分位数的 QQ 图 | `Table1.R`, `Figure1.R`, `Generate-EL-Data.R`, `Generate-Bt-Data.R` |
-| **Tab2** | Model1 下 EL、EEL 与 Candes 方法的运行时间对比表 | `Table2.R`, `Generate-Model1-EL-Data.R`, `Generate-Model1-Bt-Data.R` |
+| **Tab2** | Model1 下 EL、EEL 与 Bootstrap 方法的运行时间对比表 | `Table2.R`, `Generate-Model1-EL-Data.R`, `Generate-Model1-Bt-Data.R` |
 | **Tab3** | FFR 的 EL 检验与 Benjamini–Hochberg 多重检验 | `Table3.R`（使用 `emplik`包） |
 | **Figs2-3** | 功效比较（T04/T14/T24/T34 等统计量） | `Figs2-3.R`, `Generate-Data.R` |
 | **Fig4-6** | COMPAS 数据：非裔/白人、性别-年龄等子群的 PPV 差异 90%/95% 置信区间 | `Fig4.R`, `Fig5a.R`, `Fig5b.R`, `Fig6a.R`, `Fig6b.R`, `Generate-CI-AfricanVSCaucasian.R` 等 |
