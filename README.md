@@ -129,8 +129,6 @@ source("Figs2-3.R")
 
 - **COMPAS**：`Fig4-6/data/compas_data.csv` 来自 ProPublica 的 COMPAS 两年再犯数据（或同名格式），用于种族、性别-年龄等子群的公平性审计。
 - **模拟数据**：Table 1/2 与 Figs2–3 所用 CSV 由各目录下的 `Generate-*-Data.R` 在本地生成，需在对应目录下依次运行相应脚本。
-- **未纳入仓库的大文件**：`Fig4-6/flag.pptx`、`Fig4-6/simhei.ttf` 已加入 `.gitignore`（避免推送超时），若本地需要可自行放入对应目录。
-
 ## 核心方法简述
 
 - **EL Lagrange 计算**：在估计方程 \(g = (L - \epsilon) \cdot S\) 下求解 Lagrange 乘子 \(\lambda\)，为 EL 统计量、置信区间与 p 值的计算提供数值基础。本仓库采用 Chen et al. (2008)[^1] 第 432–433 页给出的修正 Newton–Raphson 算法实现 EL 的求解，代码见 `Glambda.R`；亦可使用 R 包 **emplik** 等现有实现。
